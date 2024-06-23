@@ -1,0 +1,25 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Header from "~/components/widgets/Header.astro";
+import Footer from "~/components/widgets/Footer.astro";
+
+import { headerData, footerData } from "~/navigation";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <slot name="header">
+    <Header {...headerData} isSticky showToggleTheme />
+  </slot>
+  <main>
+    <slot />
+  </main>
+  <slot name="footer">
+    <Footer {...footerData} />
+  </slot>
+</Layout>
