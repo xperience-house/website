@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon/components";
+
+import Contact from "~/components/widgets/Contact.astro";
+import Hero from "~/components/widgets/Hero.astro";
+import Layout from "~/layouts/PageLayout.astro";
+---
+
+<Layout title="Xperience House">
+  <Hero>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-r from-sky-300 to-indigo-300 dark:from-sky-700 dark:to-indigo-800" />
+    </Fragment>
+    <Fragment slot="title">
+      Xperience House
+    </Fragment>
+    <Fragment slot="subtitle">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      In sed massa in nunc hendrerit ultrices.
+      Mauris a lorem quis felis vulputate iaculis.
+      Mauris pulvinar elit mi, a aliquet tellus maximus vitae.
+    </Fragment>
+    <Fragment slot="actions">
+      <a class="btn-primary" href="#contact">
+        Get In Touch
+      </a>
+    </Fragment>
+  </Hero>
+
+  <div class="pt-16 pointer-events-none"></div>
+
+  <div class="flex justify-center items-end bg-yellow-200 dark:bg-yellow-700 dark:font-bold w-fit mx-auto p-3 rounded-full gap-2">
+    <Icon name="tabler:alert-triangle" class="w-6 h-6" />
+    <span>Website under construction</span>
+  </div>
+
+  <div class="pt-16 pointer-events-none"></div>
+
+  <Contact />
+
+  <!-- TODO: add footer instead -->
+  <div class="pt-96 pointer-events-none"></div>
+</Layout>
