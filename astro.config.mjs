@@ -9,6 +9,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "pt"],
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
+
   integrations: [
     tailwind({ applyBaseStyles: false }),
     icon({
