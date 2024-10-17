@@ -1,0 +1,13 @@
+---
+interface Image {
+  src: string;
+  alt?: string;
+}
+interface Props {
+  image: Image;
+}
+
+const { src, alt } = Astro.props.image;
+---
+
+<img src={src} alt={alt} />
