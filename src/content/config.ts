@@ -33,6 +33,7 @@ const zoneCollection = defineCollection({
   schema: z.object({
     name: localizedString,
     description: localizedString,
+    bannerImage: image,
     cardImage: image,
     images: z.array(image).nonempty(),
     location: z.object({

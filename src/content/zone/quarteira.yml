@@ -11,6 +11,8 @@ description: >-
   Etiam diam augue, accumsan quis libero vitae, eleifend tempus arcu.
   Curabitur ultricies, odio vel posuere gravida, risus magna tristique nulla, quis efficitur est ligula ut nulla.
   Sed semper tincidunt nunc et pellentesque.
+bannerImage:
+  src: https://picsum.photos/id/28/1000/400
 cardImage:
   src: https://picsum.photos/id/28/400/400
 images:

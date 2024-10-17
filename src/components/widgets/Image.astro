@@ -5,9 +5,11 @@ interface Image {
 }
 interface Props {
   image: Image;
+  class?: string;
 }
 
-const { src, alt } = Astro.props.image;
+const { class: className, image, ...rest } = Astro.props;
+const { src, alt } = image;
 ---
 
-<img src={src} alt={alt} />
+<img src={src} alt={alt} class={className} {...rest} />

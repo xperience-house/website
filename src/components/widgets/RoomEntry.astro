@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+
+import type { CollectionEntry } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Image from "~/components/widgets/Image.astro";
+import { useTranslations, type Lang } from "~/i18n";
+
+interface Props {
+  room: CollectionEntry<"room">;
+}
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale);
+
+const { room } = Astro.props;
+const { id, data } = room;
+---
+
+<div class="shadow-lg transition-all rounded grid grid-rows-5 h-80 break-inside-avoid-column">
+  <div class="row-span-3">
+    <Image image={data.cardImage} class="object-cover rounded-t w-full h-full" />
+  </div>
+  <div class="flex flex-col py-3 px-4 row-span-2">
+    <h3 class="text-xl font-bold">{t(data.name)}</h3>
+    <div class="grow" />
+    <div class="flex flex-col items-end">
+      <a
+        href={getRelativeLocaleUrl(locale, `room/${encodeURIComponent(id)}`)}
+        class="bg-secondary text-black font-bold rounded-full p-3 inline-flex gap-4"
+      >
+        {
+          t({
+            en: "Learn more",
+            pt: "Saber mais",
+          })
+        }
+        <Icon name="tabler:arrow-right" class="w-6 h-6" />
+      </a>
+    </div>
+  </div>
+</div>

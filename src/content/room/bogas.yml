@@ -1,0 +1,15 @@
+name:
+  en: Bogas Room
+  pt: Quarto Bogas
+description: >-
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Phasellus aliquam, nibh vel feugiat molestie, dolor nibh fringilla nisl,
+  non malesuada orci justo vitae purus.
+  Donec id imperdiet orci. Aliquam fermentum.
+bannerImage:
+  src: https://picsum.photos/id/28/800/400
+cardImage:
+  src: https://picsum.photos/id/28/400/400
+images:
+  - src: https://picsum.photos/id/28/800/400
+zone: janeiro-de-cima
