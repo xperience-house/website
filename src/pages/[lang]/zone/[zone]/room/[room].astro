@@ -1,17 +1,17 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Image from "~/components/widgets/Image.astro";
-import RoomEntry from "~/components/widgets/RoomEntry.astro";
 import Layout from "~/layouts/PageLayout.astro";
 import { LOCALES, useTranslations, type Lang } from "~/i18n";
 
 export async function getStaticPaths() {
-  const zoneEntries: CollectionEntry<"zone">[] = await getCollection("zone");
+  const roomEntries: CollectionEntry<"room">[] = await getCollection("room");
   return Object.keys(LOCALES).flatMap((lang) =>
-    zoneEntries.map((zone) => ({
-      params: { lang, id: zone.id },
-      props: { zone },
+    roomEntries.map((room) => ({
+    params: { lang, zone: room.data.zone.id,room: room.id },
+      props: { room },
     })),
   );
 }
@@ -19,10 +19,10 @@ export async function getStaticPaths() {
 const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale);
 
-const { zone } = Astro.props;
-const { id, data } = zone;
+const { room } = Astro.props;
+const { data } = room;
 
-const rooms = await getCollection("room", (room) => room.data.zone.id === id);
+const zone = await getEntry(data.zone);
 ---
 
 <Layout title={t(data.name)}>
@@ -39,22 +39,11 @@ const rooms = await getCollection("room", (room) => room.data.zone.id === id);
         <Image image={image} class:list={["w-full", {"mt-4": i > 0}]} />
       ))}
     </div>
-
-    {rooms.length > 0 && (
-      <h2 class="mt-16 text-3xl font-bold text-center">
-        {
-          t({
-            en: "Our Rooms",
-            pt: "Os Nossos Quartos",
-          })
-        }
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 mt-10 gap-4">
-        {rooms.map(roomEntry => (
-          <RoomEntry room={roomEntry} />
-        ))}
-      </div>
-    )}
+  </div>
+  <div class="container mt-16 text-center">
+    <a class="btn-secondary" href={getRelativeLocaleUrl(locale, `zone/${encodeURIComponent(zone.id)}`)}>
+      {t({en: "Go back to", pt: "Voltar a"})}
+      {t(zone.data.name)}
+    </a>
   </div>
 </Layout>
