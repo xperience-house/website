@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Image from "~/components/widgets/Image.astro";
+import Layout from "~/layouts/PageLayout.astro";
+import { LOCALES, useTranslations, type Lang } from "~/i18n";
+
+export async function getStaticPaths() {
+  const roomEntries: CollectionEntry<"room">[] = await getCollection("room");
+  return Object.keys(LOCALES).flatMap((lang) =>
+    roomEntries.map((room) => ({
+    params: { lang, zone: room.data.zone.id,room: room.id },
+      props: { room },
+    })),
+  );
+}
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale);
+
+const { room } = Astro.props;
+const { data } = room;
+
+const zone = await getEntry(data.zone);
+---
+
+<Layout title={t(data.name)}>
+  <div class="h-[55svh]">
+    <Image image={data.bannerImage} class="object-cover w-full h-full">
+  </div>
+  <div class="container mt-16">
+    <h1 class="text-4xl font-bold mb-4">{t(data.name)}</h1>
+    <div>
+      {t(data.description)}
+    </div>
+    <div class="columns-1 md:columns-2 gap-4 mt-10">
+      {data.images.map((image, i) => (
+        <Image image={image} class:list={["w-full", {"mt-4": i > 0}]} />
+      ))}
+    </div>
+  </div>
+  <div class="container mt-16 text-center">
+    <a class="btn-secondary" href={getRelativeLocaleUrl(locale, `zone/${encodeURIComponent(zone.id)}`)}>
+      {t({en: "Go back to", pt: "Voltar a"})}
+      {t(zone.data.name)}
+    </a>
+  </div>
+</Layout>
