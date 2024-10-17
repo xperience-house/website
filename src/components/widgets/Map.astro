@@ -1,0 +1,54 @@
+---
+interface Props {
+  latitude: number;
+  longitude: number;
+  name?: string;
+}
+
+const { latitude, longitude, name } = Astro.props;
+
+import "leaflet/dist/leaflet.css";
+---
+<leaflet-map
+  data-latitude={latitude}
+  data-longitude={longitude}
+  data-name={name}
+/>
+
+
+<script>
+  import Leaflet from 'leaflet';
+
+  class LeafletMap extends HTMLElement {
+    connectedCallback() {
+      const mapElement = document.createElement("div");
+      mapElement.style.height = "100%";
+      this.append(mapElement)
+
+      const {latitude, longitude, name} = this.dataset;
+
+      // typescript is not happy if we don't do this :/
+      const lat = parseFloat(latitude ?? "0");
+      const long = parseFloat(longitude ?? "0");
+
+      const map = Leaflet.map(mapElement, {
+        center: [lat, long],
+        zoom: 14,
+      })
+
+      Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+
+      Leaflet.marker(
+        [lat, long],
+        {
+          title: name
+        }
+      ).addTo(map);
+    }
+  }
+
+  customElements.define('leaflet-map', LeafletMap);
+</script>

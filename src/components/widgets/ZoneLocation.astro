@@ -1,0 +1,51 @@
+---
+import { type CollectionEntry } from "astro:content";
+import ProdIframe from "~/components/utils/ProdIframe.astro";
+import Map from "~/components/widgets/Map.astro";
+import { useTranslations, type Lang } from "~/i18n";
+import { genUrlCode } from "~/utils/ge0-coder";
+
+interface Props {
+  zone: CollectionEntry<"zone">;
+}
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale);
+
+const { zone } = Astro.props;
+const { data } = zone;
+
+const { latitude, longitude } = data.location;
+
+const googleMapsLink = `https://maps.google.com/maps?q=${encodeURIComponent(
+  `${latitude},${longitude}`,
+)}`;
+const appleMapsLink = `https://maps.apple.com/?ll=${encodeURIComponent(
+  `${latitude},${longitude}`,
+)}`;
+const omShortcode = genUrlCode(latitude, longitude, 17);
+const organicMapsLink = `https://omaps.app/${encodeURIComponent(omShortcode)}/${encodeURIComponent(
+  t(data.name),
+)}`;
+---
+<div>
+  <div class="h-96">
+    <ProdIframe>
+      <Map latitude={data.location.latitude} longitude={data.location.longitude} name={t(data.name)} />
+    </ProdIframe>
+  </div>
+
+  <div class="mt-2">
+    {t({ en: "Get directions on", pt: "Direções em" })}
+    <a href={googleMapsLink} target="_blank" rel="noreferer noopener">Google Maps</a>,
+    <a href={appleMapsLink} target="_blank" rel="noreferer noopener">Apple Maps</a>
+    {t({ en: "or", pt: "ou" })}
+    <a href={organicMapsLink} target="_blank" rel="noreferer noopener">Organic Maps</a>
+  </div>
+</div>
+
+<style>
+a {
+  @apply text-accent
+}
+</style>

@@ -10,7 +10,7 @@ export async function getStaticPaths() {
   const roomEntries: CollectionEntry<"room">[] = await getCollection("room");
   return Object.keys(LOCALES).flatMap((lang) =>
     roomEntries.map((room) => ({
-    params: { lang, zone: room.data.zone.id,room: room.id },
+      params: { lang, zone: room.data.zone.id, room: room.id },
       props: { room },
     })),
   );
