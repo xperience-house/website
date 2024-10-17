@@ -15,6 +15,10 @@ const img = (image: ImageFunction) =>
     alt: z.string().optional(),
   });
 
+const bookingInfo = z.object({
+  avaibookId: z.string(),
+})
+
 // Rentable property
 const roomCollection = defineCollection({
   type: "data",
@@ -40,6 +44,7 @@ const zoneCollection = defineCollection({
       bannerImage: img(image),
       cardImage: img(image),
       images: z.array(img(image)).nonempty(),
+      bookingInfo: bookingInfo.optional(),
       location: z.object({
         latitude: z.number(),
         longitude: z.number(),

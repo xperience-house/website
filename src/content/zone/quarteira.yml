@@ -17,6 +17,8 @@ cardImage:
   src: https://picsum.photos/id/28/400/400
 images:
   - src: https://picsum.photos/id/28/800/400
+bookingInfo:
+  avaibookId: "383858"
 location:
   # TODO
   longitude: 0

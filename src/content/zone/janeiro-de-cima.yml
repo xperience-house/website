@@ -22,6 +22,8 @@ images:
   - src: https://picsum.photos/id/31/800/400
   - src: https://picsum.photos/id/32/800/400
   - src: https://picsum.photos/id/33/800/400
+bookingInfo:
+  avaibookId: "383859"
 location:
   # TODO
   longitude: 0

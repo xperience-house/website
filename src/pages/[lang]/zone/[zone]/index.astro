@@ -56,5 +56,23 @@ const rooms = await getCollection("room", (room) => room.data.zone.id === id);
         ))}
       </div>
     )}
+
+    {data.bookingInfo && (
+      <h2 class="mt-16 text-3xl font-bold text-center">
+        {
+          t({
+            en: "Book Now!",
+            pt: "Reserve Já!",
+          })
+        }
+      </h2>
+
+      <div class="mt-16 h-[80vh]">
+        <iframe
+          src={`https://www.avaibook.com/reservas/nueva_reserva.php?cod_alojamiento=${encodeURIComponent(data.bookingInfo.avaibookId)}&lang=${encodeURIComponent(locale)}&iframe=1`}
+          class="w-full h-full"
+        />
+      </div>
+    )}
   </div>
 </Layout>
