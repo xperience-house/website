@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon/components";
+
+import type { CollectionEntry } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Image from "~/components/widgets/Image.astro";
+import LocalizedString from "~/components/widgets/LocalizedString.astro";
+
+interface Props {
+  zone: CollectionEntry<"zone">;
+}
+
+const { zone } = Astro.props;
+const { id, data } = zone;
+
+const locale = Astro.currentLocale ?? "en";
+---
+
+<div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <Image image={data.cardImage} />
+    <div class="flex flex-col">
+      <h3 class="text-2xl font-bold pb-4">
+        <LocalizedString ls={data.name} />
+      </h3>
+      <div>
+        <LocalizedString ls={data.description} />
+      </div>
+      <div class="grow"></div>
+      <div class="flex flex-col items-end">
+        <a
+          href={getRelativeLocaleUrl(locale, `zone/${encodeURIComponent(id)}`)}
+          class="bg-secondary text-black font-bold rounded-full p-3 inline-flex gap-4"
+        >
+          Learn more <Icon name="tabler:arrow-right" class="w-6 h-6" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

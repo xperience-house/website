@@ -1,5 +1,20 @@
 name: Xperience House Janeiro
-description: TODO
+description: >-
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Sed eget eros tellus.
+  Etiam molestie auctor ultricies.
+  Phasellus quis ultrices massa.
+  Cras dignissim mi nec velit ullamcorper feugiat.
+  Fusce nibh dui, gravida sagittis congue in, sodales in leo.
+  Nulla facilisi.
+  Sed tincidunt ligula ac arcu viverra fringilla.
+  Etiam diam augue, accumsan quis libero vitae, eleifend tempus arcu.
+  Curabitur ultricies, odio vel posuere gravida, risus magna tristique nulla, quis efficitur est ligula ut nulla.
+  Sed semper tincidunt nunc et pellentesque.
+cardImage:
+  src: https://picsum.photos/id/28/400/400
+images:
+  - src: https://picsum.photos/id/28/800/400
 location:
   # TODO
   longitude: 0
