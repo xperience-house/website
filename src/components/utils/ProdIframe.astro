@@ -1,0 +1,9 @@
+{
+  import.meta.env.PROD ? (
+    <slot />
+  ) : (
+    <div class="bg-primary text-on-primary h-full">
+      iframe hidden in development
+    </div>
+  )
+}

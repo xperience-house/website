@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
+import ProdIframe from "~/components/utils/ProdIframe.astro";
 import Image from "~/components/widgets/Image.astro";
 import RoomEntry from "~/components/widgets/RoomEntry.astro";
 import Layout from "~/layouts/PageLayout.astro";
@@ -68,10 +69,13 @@ const rooms = await getCollection("room", (room) => room.data.zone.id === id);
       </h2>
 
       <div class="mt-16 h-[80vh]">
-        <iframe
-          src={`https://www.avaibook.com/reservas/nueva_reserva.php?cod_alojamiento=${encodeURIComponent(data.bookingInfo.avaibookId)}&lang=${encodeURIComponent(locale)}&iframe=1`}
-          class="w-full h-full"
-        />
+        <ProdIframe>
+          <iframe
+            src={`https://www.avaibook.com/reservas/nueva_reserva.php?cod_alojamiento=${encodeURIComponent(data.bookingInfo.avaibookId)}&lang=${encodeURIComponent(locale)}&iframe=1`}
+            loading="lazy"
+            class="w-full h-full"
+          />
+        </ProdIframe>
       </div>
     )}
   </div>
