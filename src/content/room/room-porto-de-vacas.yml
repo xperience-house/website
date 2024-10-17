@@ -9,7 +9,7 @@ description: >-
 bannerImage:
   url: https://picsum.photos/id/28/800/400
 cardImage:
-  url: https://picsum.photos/id/28/400/400
+  src: https://picsum.photos/id/28/400/400
 images:
-  - url: https://picsum.photos/id/28/800/400
+  - src: https://picsum.photos/id/28/800/400
 zone: janeiro-de-cima
