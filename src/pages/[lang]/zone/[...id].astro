@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
-import { getImage } from "astro:assets";
 import Image from "~/components/widgets/Image.astro";
 import RoomEntry from "~/components/widgets/RoomEntry.astro";
 import Layout from "~/layouts/PageLayout.astro";
@@ -23,21 +22,13 @@ const t = useTranslations(locale);
 const { zone } = Astro.props;
 const { id, data } = zone;
 
-const optimizedBannerImage = await getImage({
-  src: data.bannerImage.src,
-  format: "webp",
-  inferSize: true,
-});
-
 const rooms = await getCollection("room", (room) => room.data.zone.id === id);
 ---
 
 <Layout title={t(data.name)}>
-  <div
-    class="h-[55svh] bg-cover bg-center"
-    aria-hidden="true"
-    style={{backgroundImage: `url(${optimizedBannerImage.src})`}}
-  />
+  <div class="h-[55svh]">
+    <Image image={data.bannerImage} class="object-cover w-full h-full">
+  </div>
   <div class="container mx-auto mt-16">
     <h1 class="text-4xl font-bold mb-4">{t(data.name)}</h1>
     <div>
