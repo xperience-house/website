@@ -25,6 +25,5 @@ images:
 bookingInfo:
   avaibookId: "383859"
 location:
-  # TODO
-  longitude: 0
-  latitude: 0
+  latitude: 40.065874
+  longitude: -7.800157

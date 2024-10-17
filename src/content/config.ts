@@ -17,7 +17,7 @@ const img = (image: ImageFunction) =>
 
 const bookingInfo = z.object({
   avaibookId: z.string(),
-})
+});
 
 // Rentable property
 const roomCollection = defineCollection({
