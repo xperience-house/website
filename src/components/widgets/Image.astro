@@ -1,6 +1,9 @@
 ---
+import { Picture, inferRemoteSize } from "astro:assets";
+import { type ImageMetadata } from "astro";
+
 interface Image {
-  src: string;
+  src: string | ImageMetadata;
   alt?: string;
 }
 interface Props {
@@ -10,6 +13,25 @@ interface Props {
 
 const { class: className, image, ...rest } = Astro.props;
 const { src, alt } = image;
----
 
-<img src={src} alt={alt} class={className} {...rest} />
+let widths = [240, 540, 720, 1080, 1440, 2160];
+let maxWidth = Infinity;
+// Astro should do this automatically, but it doesn't for remote images...
+if (typeof src === "string") {
+  maxWidth = (await inferRemoteSize(src)).width;
+} else {
+  maxWidth = src.width;
+}
+// Limit widths to original width (and remove duplicates)
+widths = widths.map((w) => Math.min(maxWidth, w)).filter((w, i, arr) => i === 0 || w != arr[i - 1]);
+
+// src is cast to string because inferSize is only "valid" for remote images
+---
+<Picture
+  src={src as string}
+  alt={alt ?? ""}
+  widths={widths}
+  inferSize
+  class={className}
+  {...rest}
+/>

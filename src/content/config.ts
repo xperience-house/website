@@ -1,4 +1,5 @@
 import { defineCollection, reference, z } from "astro:content";
+import { type ImageFunction } from "astro:content";
 
 const localizedString = z.union([
   z.string(),
@@ -8,39 +9,42 @@ const localizedString = z.union([
   }),
 ]);
 
-const image = z.object({
-  src: z.string(),
-  alt: z.string().optional(),
-});
+const img = (image: ImageFunction) =>
+  z.object({
+    src: z.union([image(), z.string()]),
+    alt: z.string().optional(),
+  });
 
 // Rentable property
 const roomCollection = defineCollection({
   type: "data",
-  schema: z.object({
-    name: localizedString,
-    description: localizedString,
-    bannerImage: image,
-    cardImage: image,
-    images: z.array(image).nonempty(),
+  schema: ({ image }) =>
+    z.object({
+      name: localizedString,
+      description: localizedString,
+      bannerImage: img(image),
+      cardImage: img(image),
+      images: z.array(img(image)).nonempty(),
 
-    zone: reference("zone"),
-  }),
+      zone: reference("zone"),
+    }),
 });
 
 // Zone includes one or multiple rooms
 const zoneCollection = defineCollection({
   type: "data",
-  schema: z.object({
-    name: localizedString,
-    description: localizedString,
-    bannerImage: image,
-    cardImage: image,
-    images: z.array(image).nonempty(),
-    location: z.object({
-      latitude: z.number(),
-      longitude: z.number(),
+  schema: ({ image }) =>
+    z.object({
+      name: localizedString,
+      description: localizedString,
+      bannerImage: img(image),
+      cardImage: img(image),
+      images: z.array(img(image)).nonempty(),
+      location: z.object({
+        latitude: z.number(),
+        longitude: z.number(),
+      }),
     }),
-  }),
 });
 
 export const collections = {

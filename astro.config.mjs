@@ -26,6 +26,10 @@ export default defineConfig({
     }),
   ],
 
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+  },
+
   vite: {
     resolve: {
       alias: {
