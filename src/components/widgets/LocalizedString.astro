@@ -1,0 +1,13 @@
+---
+interface Props {
+  ls: Record<string, string> | string;
+}
+
+const { ls } = Astro.props;
+
+const locale = Astro.currentLocale ?? "en";
+
+const msg = typeof ls === "string" ? ls : ls[locale] ?? "Failed to find message";
+---
+
+{msg}
