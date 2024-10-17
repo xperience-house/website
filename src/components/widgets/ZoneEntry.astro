@@ -4,16 +4,17 @@ import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Image from "~/components/widgets/Image.astro";
-import LocalizedString from "~/components/widgets/LocalizedString.astro";
+import { useTranslations, type Lang } from "~/i18n";
 
 interface Props {
   zone: CollectionEntry<"zone">;
 }
 
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale);
+
 const { zone } = Astro.props;
 const { id, data } = zone;
-
-const locale = Astro.currentLocale ?? "en";
 ---
 
 <div>
@@ -21,10 +22,10 @@ const locale = Astro.currentLocale ?? "en";
     <Image image={data.cardImage} />
     <div class="flex flex-col">
       <h3 class="text-2xl font-bold pb-4">
-        <LocalizedString ls={data.name} />
+        {t(data.name)}
       </h3>
       <div>
-        <LocalizedString ls={data.description} />
+        {t(data.description)}
       </div>
       <div class="grow"></div>
       <div class="flex flex-col items-end">
@@ -32,7 +33,13 @@ const locale = Astro.currentLocale ?? "en";
           href={getRelativeLocaleUrl(locale, `zone/${encodeURIComponent(id)}`)}
           class="bg-secondary text-black font-bold rounded-full p-3 inline-flex gap-4"
         >
-          Learn more <Icon name="tabler:arrow-right" class="w-6 h-6" />
+          {
+            t({
+              en: "Learn more",
+              pt: "Saber mais",
+            })
+          }
+          <Icon name="tabler:arrow-right" class="w-6 h-6" />
         </a>
       </div>
     </div>
