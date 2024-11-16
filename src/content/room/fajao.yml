@@ -1,0 +1,17 @@
+name:
+  en: Fajão
+  pt: Fajão
+description: >-
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Phasellus aliquam, nibh vel feugiat molestie, dolor nibh fringilla nisl,
+  non malesuada orci justo vitae purus.
+  Donec id imperdiet orci. Aliquam fermentum.
+bannerImage:
+  src: ../assets/janeiro-de-cima/fajao-01.jpg
+cardImage:
+  src: ../assets/janeiro-de-cima/fajao-01.jpg
+images:
+  - src: ../assets/janeiro-de-cima/fajao-01.jpg
+  - src: ../assets/janeiro-de-cima/fajao-02.jpg
+  - src: ../assets/janeiro-de-cima/fajao-wc.jpg
+zone: janeiro-de-cima

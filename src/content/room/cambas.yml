@@ -7,9 +7,11 @@ description: >-
   non malesuada orci justo vitae purus.
   Donec id imperdiet orci. Aliquam fermentum.
 bannerImage:
-  src: https://picsum.photos/id/28/800/400
+  src: ../assets/janeiro-de-cima/cambas-01.jpg
 cardImage:
-  src: https://picsum.photos/id/28/400/400
+  src: ../assets/janeiro-de-cima/cambas-01.jpg
 images:
-  - src: https://picsum.photos/id/28/800/400
+  - src: ../assets/janeiro-de-cima/cambas-01.jpg
+  - src: ../assets/janeiro-de-cima/shared-wc-01.jpg
+  - src: ../assets/janeiro-de-cima/shared-wc-02.jpg
 zone: janeiro-de-cima
