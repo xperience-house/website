@@ -2,11 +2,14 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import ProdIframe from "~/components/utils/ProdIframe.astro";
+import Contact from "~/components/widgets/Contact.astro";
+import Hero from "~/components/widgets/Hero.astro";
 import Image from "~/components/widgets/Image.astro";
 import RoomEntry from "~/components/widgets/RoomEntry.astro";
 import ZoneLocation from "~/components/widgets/ZoneLocation.astro";
 import Layout from "~/layouts/PageLayout.astro";
 import { LOCALES, useTranslations, type Lang } from "~/i18n";
+import Logo from "~/assets/images/logo_bg_dark.svg";
 
 export async function getStaticPaths() {
   const zoneEntries: CollectionEntry<"zone">[] = await getCollection("zone");
@@ -28,11 +31,34 @@ const rooms = await getCollection("room", (room) => room.data.zone.id === id);
 ---
 
 <Layout title={t(data.name)}>
-  <div class="h-[55svh]">
-    <Image image={data.bannerImage} class="object-cover w-full h-full">
-  </div>
+  <Hero>
+    <Image slot="bg" image={data.bannerImage} class="object-cover w-full h-full brightness-50" />
+    <div slot="logo" class="w-[500px] max-w-[90%] mx-auto">
+      <Logo width="100%" />
+    </div>
+    <Fragment slot="title">
+      {t(data.location.name)}
+    </Fragment>
+    <Fragment slot="actions">
+      <a class="btn-primary" href="#booking">
+        {
+          t({
+            en: "Book Now",
+            pt: "Reserve Já",
+          })
+        }
+      </a>
+      <a class="btn-secondary" href="#contact">
+        {
+          t({
+            en: "Get In Touch",
+            pt: "Contacte-nos",
+          })
+        }
+      </a>
+    </Fragment>
+  </Hero>
   <div class="container mt-16">
-    <h1 class="text-4xl font-bold mb-4">{t(data.name)}</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div>
         {t(data.description)}
@@ -63,7 +89,7 @@ const rooms = await getCollection("room", (room) => room.data.zone.id === id);
     )}
 
     {data.bookingInfo && (
-      <h2 class="mt-16 text-3xl font-bold text-center">
+      <h2 class="mt-16 text-3xl font-bold text-center" id="booking">
         {
           t({
             en: "Book Now!",
@@ -82,5 +108,9 @@ const rooms = await getCollection("room", (room) => room.data.zone.id === id);
         </ProdIframe>
       </div>
     )}
+
+    <div class="pt-16 pointer-events-none"></div>
+
+    <Contact />
   </div>
 </Layout>

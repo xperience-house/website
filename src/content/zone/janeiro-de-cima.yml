@@ -33,5 +33,6 @@ images:
 bookingInfo:
   avaibookId: "383859"
 location:
+  name: Janeiro de Cima
   latitude: 40.065874
   longitude: -7.800157

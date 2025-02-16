@@ -21,5 +21,6 @@ bookingInfo:
   avaibookId: "383858"
 location:
   # TODO
+  name: Algarve
   longitude: 0
   latitude: 0

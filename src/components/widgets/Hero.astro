@@ -6,7 +6,8 @@
     <div class="pt-24 pointer-events-none"></div>
     <div class="py-12 md:py-20">
       <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
-        <h1 class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200">
+        <slot name="logo" />
+        <h1 class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter my-4 font-heading dark:text-gray-200">
           <slot name="title" />
         </h1>
         <div class="max-w-3xl mx-auto">

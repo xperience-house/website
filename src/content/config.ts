@@ -46,6 +46,7 @@ const zoneCollection = defineCollection({
       images: z.array(img(image)).nonempty(),
       bookingInfo: bookingInfo.optional(),
       location: z.object({
+        name: localizedString,
         latitude: z.number(),
         longitude: z.number(),
       }),
