@@ -1,16 +1,30 @@
 name: Xperience House Janeiro
-description: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Sed eget eros tellus.
-  Etiam molestie auctor ultricies.
-  Phasellus quis ultrices massa.
-  Cras dignissim mi nec velit ullamcorper feugiat.
-  Fusce nibh dui, gravida sagittis congue in, sodales in leo.
-  Nulla facilisi.
-  Sed tincidunt ligula ac arcu viverra fringilla.
-  Etiam diam augue, accumsan quis libero vitae, eleifend tempus arcu.
-  Curabitur ultricies, odio vel posuere gravida, risus magna tristique nulla, quis efficitur est ligula ut nulla.
-  Sed semper tincidunt nunc et pellentesque.
+description: |
+  **Bem-vindo à XperienceHouse**  
+  Descubra a tranquilidade e a beleza natural na Xperience House
+  (Casa X), situada na pitoresca aldeia de Janeiro de cima, uma
+  aldeia de Xisto no Zezere, perto da Pampilhosa da Serra e do Fundão.
+  A nossa casa oferece uma experiência única de alojamento, combinando
+  conforto moderno com a serenidade do campo.
+
+  **Acomodação e Facilidades**  
+  A XperienceHouse dispõe de uma piscina privada, perfeita para relaxar
+  nos dias quentes de verão, bem como todas as comodidades necessárias
+  a uma estadia rápida ou prolongada.
+  A aldeia oferece uma encantadora praia fluvial, ideal para um mergulho
+  refrescante ou um piquenique à beira-rio.
+
+  **Natureza e Atividades**  
+  Rodeada por uma natureza deslumbrante, a região é um paraíso para os
+  amantes de atividades ao ar livre.
+  Explore os inúmeros trilhos e percursos pedestres (PR's) que serpenteiam
+  pela paisagem, proporcionando vistas espetaculares e momentos inesquecíveis.
+
+  **Venha Viver a Experiência**  
+  Na XperienceHouse, cada detalhe é pensado para proporcionar uma estadia
+  memorável. Seja para uma escapadela romântica, uma aventura em família
+  ou com amigos, ou um retiro tranquilo, estamos prontos para recebê-lo de
+  braços abertos.
 bannerImage:
   src: ../assets/janeiro-de-cima/outdoor-pool.jpg
 cardImage:
