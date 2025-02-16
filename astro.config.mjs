@@ -2,7 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { defineConfig } from "astro/config";
 
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -21,7 +21,6 @@ export default defineConfig({
   },
 
   integrations: [
-    tailwind({ applyBaseStyles: false }),
     icon({
       include: {
         tabler: ["*"],
@@ -40,6 +39,7 @@ export default defineConfig({
   },
 
   vite: {
+    plugins: [tailwindcss()],
     resolve: {
       alias: {
         "~": path.resolve(__dirname, "./src"),
