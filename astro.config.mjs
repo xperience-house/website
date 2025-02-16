@@ -7,12 +7,13 @@ import icon from "astro-icon";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+const defaultLocale = "en";
 const locales = ["en", "pt"];
 
 // https://astro.build/config
 export default defineConfig({
   i18n: {
-    defaultLocale: "en",
+    defaultLocale,
     locales,
     routing: {
       prefixDefaultLocale: true,
@@ -29,6 +30,7 @@ export default defineConfig({
   ],
 
   redirects: {
+    "/": `/${defaultLocale}`,
     // redirect home page to janeiro-de-cima zone
     ...locales.reduce((acc, l) => ({ ...acc, [`/${l}/`]: `/${l}/zone/janeiro-de-cima` }), {}),
   },
