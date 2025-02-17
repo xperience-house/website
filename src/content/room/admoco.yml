@@ -1,11 +1,5 @@
-name:
-  en: Admoço Room
-  pt: Quarto Admoço
-description: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Phasellus aliquam, nibh vel feugiat molestie, dolor nibh fringilla nisl,
-  non malesuada orci justo vitae purus.
-  Donec id imperdiet orci. Aliquam fermentum.
+name: Admoço
+description: ""
 bannerImage:
   src: ../assets/janeiro-de-cima/admoco-01.jpg
 cardImage:

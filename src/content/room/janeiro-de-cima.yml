@@ -1,11 +1,5 @@
-name:
-  en: Janeiro de Cima Room
-  pt: Quarto Janeiro de Cima
-description: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Phasellus aliquam, nibh vel feugiat molestie, dolor nibh fringilla nisl,
-  non malesuada orci justo vitae purus.
-  Donec id imperdiet orci. Aliquam fermentum.
+name: Janeiro de Cima
+description: ""
 bannerImage:
   src: ../assets/janeiro-de-cima/janeiro-de-cima-01.jpg
 cardImage:

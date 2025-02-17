@@ -1,11 +1,5 @@
-name:
-  en: Porto de Vacas Room
-  pt: Quarto Porto de Vacas
-description: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Phasellus aliquam, nibh vel feugiat molestie, dolor nibh fringilla nisl,
-  non malesuada orci justo vitae purus.
-  Donec id imperdiet orci. Aliquam fermentum.
+name: Porto de Vacas
+description: ""
 bannerImage:
   src: ../assets/janeiro-de-cima/porto-de-vacas-01.jpg
 cardImage:

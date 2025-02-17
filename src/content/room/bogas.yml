@@ -1,11 +1,5 @@
-name:
-  en: Bogas Room
-  pt: Quarto Bogas
-description: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Phasellus aliquam, nibh vel feugiat molestie, dolor nibh fringilla nisl,
-  non malesuada orci justo vitae purus.
-  Donec id imperdiet orci. Aliquam fermentum.
+name: Bogas
+description: ""
 bannerImage:
   src: ../assets/janeiro-de-cima/bogas-01.jpg
 cardImage:

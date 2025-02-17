@@ -1,11 +1,5 @@
-name:
-  en: Casal da Lapa Room
-  pt: Quarto Casal da Lapa
-description: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Phasellus aliquam, nibh vel feugiat molestie, dolor nibh fringilla nisl,
-  non malesuada orci justo vitae purus.
-  Donec id imperdiet orci. Aliquam fermentum.
+name: Casal da Lapa
+description: ""
 bannerImage:
   src: ../assets/janeiro-de-cima/casal-da-lapa-01.jpg
 cardImage:
