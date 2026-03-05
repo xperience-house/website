@@ -12,11 +12,11 @@ description: >-
   Curabitur ultricies, odio vel posuere gravida, risus magna tristique nulla, quis efficitur est ligula ut nulla.
   Sed semper tincidunt nunc et pellentesque.
 bannerImage:
-  src: https://picsum.photos/id/28/1000/400
+  src: ../assets/quarteira/placeholder.jpg
 cardImage:
-  src: https://picsum.photos/id/28/400/400
+  src: ../assets/quarteira/placeholder.jpg
 images:
-  - src: https://picsum.photos/id/28/800/400
+  - src: ../assets/quarteira/placeholder.jpg
 bookingInfo:
   avaibookId: "383858"
 location:
