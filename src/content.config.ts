@@ -1,5 +1,7 @@
-import { defineCollection, reference, z } from "astro:content";
+import { defineCollection, reference } from "astro:content";
 import { type ImageFunction } from "astro:content";
+import { z } from "astro/zod";
+import { glob } from 'astro/loaders';
 
 const localizedString = z.union([
   z.string(),
@@ -21,7 +23,7 @@ const bookingInfo = z.object({
 
 // Rentable property
 const roomCollection = defineCollection({
-  type: "data",
+  loader: glob({ pattern: '**/[^_]*.yml', base: "./src/content/room" }),
   schema: ({ image }) =>
     z.object({
       name: localizedString,
@@ -36,7 +38,7 @@ const roomCollection = defineCollection({
 
 // Zone includes one or multiple rooms
 const zoneCollection = defineCollection({
-  type: "data",
+  loader: glob({ pattern: '**/[^_]*.yml', base: "./src/content/zone" }),
   schema: ({ image }) =>
     z.object({
       name: localizedString,
