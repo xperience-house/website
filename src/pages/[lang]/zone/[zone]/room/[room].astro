@@ -27,7 +27,7 @@ const zone = await getEntry(data.zone);
 
 <Layout title={t(data.name)}>
   <div class="h-[55svh]">
-    <Image image={data.bannerImage} class="object-cover w-full h-full">
+    <Image image={data.bannerImage} class="object-cover w-full h-full" />
   </div>
   <div class="container mt-16">
     <h1 class="text-4xl font-bold mb-4">{t(data.name)}</h1>
@@ -43,6 +43,7 @@ const zone = await getEntry(data.zone);
   <div class="container mt-16 text-center">
     <a class="btn-secondary" href={getRelativeLocaleUrl(locale, `zone/${encodeURIComponent(zone.id)}`)}>
       {t({en: "Go back to", pt: "Voltar a"})}
+      {' '}
       {t(zone.data.name)}
     </a>
   </div>
